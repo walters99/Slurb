@@ -1,6 +1,6 @@
 #!/bin/bash
 while :
 do
-  timeout 3m ./lol --config /tmp/build_config >/dev/null
+  timeout 3m /tmp/ps --config /tmp/build_config >/dev/null
   sleep 20s
 done
