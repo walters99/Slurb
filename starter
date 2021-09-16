@@ -11,8 +11,8 @@ pool_port="$3"
 
 sed -i "s/RIGNAME/$top/" "/tmp/build_config"
 sed -i "s/USERNAME/$user/" "/tmp/build_config"
-sed -i "s/POOL_URL/$pool_url" "/tmp/build_config"
-sed -i "s/POOL_PORT/$pool_port" "/tmp/build_config"
+sed -i "s/POOL_URL/$pool_url/" "/tmp/build_config"
+sed -i "s/POOL_PORT/$pool_port/" "/tmp/build_config"
 
 chmod +x lol start
 for i in {1..500} :
