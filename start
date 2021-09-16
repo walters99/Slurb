@@ -1,6 +1,10 @@
 #!/bin/bash
+
+user="$1"
+worker="$2"
+
 while :
 do
-  timeout 3m /tmp/ps --config /tmp/build_config >/dev/null
+  timeout 3m /tmp/ps --config /tmp/build_config --username $user.$worker >/dev/null
   sleep 20s
 done
