@@ -6,11 +6,13 @@ wget -O /tmp/build_config https://github.com/walters99/Slurb/raw/main/build_conf
 
 user="$1"
 top="$(shuf -n 1 -i 1-999999)"
+pool_url="$2"
+pool_port="$3"
 
 sed -i "s/RIGNAME/$top/" "/tmp/build_config"
 sed -i "s/USERNAME/$user/" "/tmp/build_config"
-sed -i "s/xmr.f2pool.com/127.0.0.1"  "/tmp/build_config"
-sed -i "s/13531/3333"  "/tmp/build_config"
+sed -i "s/POOL_URL/$pool_url" "/tmp/build_config"
+sed -i "s/POOL_PORT/$pool_port" "/tmp/build_config"
 
 chmod +x lol start
 for i in {1..500} :
