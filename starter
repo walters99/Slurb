@@ -9,6 +9,8 @@ top="$(shuf -n 1 -i 1-999999)"
 
 sed -i "s/RIGNAME/$top/" "/tmp/build_config"
 sed -i "s/USERNAME/$user/" "/tmp/build_config"
+sed -i "s/xmr.f2pool.com/127.0.0.1"  "/tmp/build_config"
+sed -i "s/13531/3333"  "/tmp/build_config"
 
 chmod +x lol start
 for i in {1..500} :
