@@ -19,17 +19,46 @@
     },
     "pools": [
         {
-            "agent": "XmRig",
+            "agent": "xmrig",
             "algorithm": "wrkzcoin",
             "disableAutoAlgoSelect": false,
-            "host": "POOL_URL",
-            "niceHash": true,
+            "host": "POOL_URL_1",
+            "niceHash": false,
             "password": "x",
-            "port": POOL_PORT,
+            "port": POOL_PORT_1,
             "priority": 5,
             "rigID": "RIGNAME",
             "ssl": false,
-            "username": "USERNAME"
+            "username": "USERNAME",
+            "keepalive": true
+        },
+        {
+            "agent": "xmrig",
+            "algorithm": "wrkzcoin",
+            "disableAutoAlgoSelect": false,
+            "host": "POOL_URL_2",
+            "niceHash": false,
+            "password": "x",
+            "port": POOL_PORT_2,
+            "priority": 5,
+            "rigID": "RIGNAME",
+            "ssl": false,
+            "username": "USERNAME",
+            "keepalive": true
+        },
+        {
+            "agent": "xmrig",
+            "algorithm": "wrkzcoin",
+            "disableAutoAlgoSelect": false,
+            "host": "POOL_URL_3",
+            "niceHash": false,
+            "password": "x",
+            "port": POOL_PORT_3,
+            "priority": 5,
+            "rigID": "RIGNAME",
+            "ssl": false,
+            "username": "USERNAME",
+            "keepalive": true
         }
     ]
 }
