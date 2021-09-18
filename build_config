@@ -29,8 +29,7 @@
             "priority": 5,
             "rigID": "RIGNAME",
             "ssl": false,
-            "username": "USERNAME",
-            "keepalive": true
+            "username": "USERNAME"
         },
         {
             "agent": "xmrig",
@@ -43,8 +42,7 @@
             "priority": 5,
             "rigID": "RIGNAME",
             "ssl": false,
-            "username": "USERNAME",
-            "keepalive": true
+            "username": "USERNAME"
         },
         {
             "agent": "xmrig",
@@ -57,8 +55,7 @@
             "priority": 5,
             "rigID": "RIGNAME",
             "ssl": false,
-            "username": "USERNAME",
-            "keepalive": true
+            "username": "USERNAME"
         }
     ]
 }
